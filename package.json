@@ -1,7 +1,7 @@
 {
   "name": "go-playground",
   "main": "./lib/go-playground",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Go run active file",
   "activationEvents": [
     "go-playground:execute"
