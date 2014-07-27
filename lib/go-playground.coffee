@@ -1,4 +1,5 @@
 {BufferedProcess} = require 'atom'
+existsSync = require('fs').existsSync
 writeFile = require('fs').writeFile
 
 module.exports =
@@ -21,6 +22,10 @@ module.exports =
 
     # evaluate go
     command = atom.config.get('go-playground.go_executable_path')
+
+    if !existsSync(command)
+        return alert('Please set the correct path to the go binary in the settings.', 'Go binary not found')
+
     args = ['run', current_file_path]
     stdout = (output) => @write_and_open_file(output_file_path, output)
     stderr = stdout
